@@ -411,14 +411,14 @@ reverse_remod = 0;
 %%% BBBBBBB %%%
 
 wk3_form_new = 0;
-
+cmod
 for i=1:length(comp)
-    seq_0 = comp{i}(1:2);
-    seq_1 = comp{i}(2:3);
-    seq_2 = comp{i}(3:4);
-    seq_3 = comp{i}(4:5);
-    seq_4 = comp{i}(5:6);
-    seq_5 = comp{i}(6:7);
+    seq_0 = comp{i}(1:1);
+    seq_1 = comp{i}(2:2);
+    seq_2 = comp{i}(3:3);
+    seq_3 = comp{i}(4:4);
+    seq_4 = comp{i}(5:5);
+    seq_5 = comp{i}(6:6);
     seq_6 = comp{i}(7:7);
 %    seq_A  = comp{i}(1:2);
 %    seq_B  = comp{i}(6:7);
@@ -433,118 +433,89 @@ for i=1:length(comp)
     
     %Counting Formation/Resorption
 
-    if strcmp(seq_0, 'BF')
+    if strcmp(seq_1, 'F')
         
         Mod_Remod_Ind(i,2) = 2;
        
-        % Week 3 Anabolic Modeling is 3
-        wk3_form_new = wk3_form_new+1;
+        % Week 2 Formation is 2
        
-    elseif strcmp(seq_1, 'RB')
+    elseif strcmp(seq_1, 'R')
         
         Mod_Remod_Ind(i,2) = -2;
+        % Week 2 Resorption is -2
     end
     
-    if strcmp(seq_1, 'BF')
+    if strcmp(seq_2, 'F')
         
         Mod_Remod_Ind(i,3) = 3;
        
-        % Week 3 Anabolic Modeling is 3
-        wk3_form_new = wk3_form_new+1;
+        % Week 3 Formation is 3
        
-    elseif strcmp(seq_2, 'RB')
+    elseif strcmp(seq_2, 'R')
         
         Mod_Remod_Ind(i,3) = -3;
         
-        % Week 1 Catabolic Modeling is -1
-%         wk1_resorb=wk1_resorb+1;
+        % Week 3 Resorption is -3
         
         
     end
         
     
-    if strcmp(seq_2, 'BF')
+    if strcmp(seq_3, 'F')
         
         Mod_Remod_Ind(i,4) = 4;
         
-%        wk4_form = wk4_form+1;
-%        wk4 Anaboilic Modeling Formation is 4
+%        wk4 Formation is 4
        
-    elseif strcmp(seq_3, 'RB')
+    elseif strcmp(seq_3, 'R')
         
           Mod_Remod_Ind(i,4) = -4;
         
-%         wk2_resorb=wk2_resorb+1;
-%         wk2 Catabolic Modeling Resorption is -2
-        
-    elseif strcmp(seq_2,'RF')
-        
-        Mod_Remod_Ind(i,4) = 44;
-        Mod_Remod_Ind(i,2) = -22;
-        
+%         wk4 Resorption is -4
+         
        
     end
   
-    if strcmp(seq_3, 'BF')
+    if strcmp(seq_4, 'F')
         
         Mod_Remod_Ind(i,5) = 5;
         
-%        wk5_form = wk5_form+1;
-        % wk5 Anabolic modeling is 5
+        % wk5 Formation is 5
        
-    elseif strcmp(seq_4, 'RB')
+    elseif strcmp(seq_4, 'R')
         
         Mod_Remod_Ind(i,5) = -5;
         
-%        wk3_resorb=wk3_resorb+1;
-         % wk 3 Catabolic Modeling is -3
-    
-    elseif strcmp(seq_3,'RF') 
-        
-        Mod_Remod_Ind(i,5) = 55;
-        Mod_Remod_Ind(i,3) = -33;
-        
+         % wk 5 Resorption is -5
 
     end
     
-    if strcmp(seq_4, 'BF')
+    if strcmp(seq_5, 'F')
         
         Mod_Remod_Ind(i,6) = 6;
         
-        % wk6 Anabolic modeling is 6
+        % wk6 Formation is 6
         
-    elseif strcmp(seq_5, 'RB')
+    elseif strcmp(seq_5, 'R')
         
         Mod_Remod_Ind(i,6) = -6;
         
-        % wk4 Catabolic modeling is -4
+        % wk6 Resorption is -6
         
-    elseif strcmp(seq_4,'RF')
-        
-        Mod_Remod_Ind(i,6) = 66;
-        Mod_Remod_Ind(i,4) = -44;
-        
-    end
-    
-    if strcmp(seq_5, 'BF')
+
+    if strcmp(seq_6, 'F')
         
         Mod_Remod_Ind(i,7) = 7;
         
-        % wk7 Anabolic modeling is 7
+        % wk7 Formation is 7
         
     elseif strcmp(seq_6, 'R')
         
         Mod_Remod_Ind(i,7) = -7;
         
 
-        % wk 4 Catabolic Modeling is -4
+        % wk 7 Resorption is -7
         
-    elseif strcmp(seq_5,'RF')
-        
-        Mod_Remod_Ind(i,7) = 77;
-        Mod_Remod_Ind(i,5) = -55;
-        
-
         
     end 
         
@@ -592,32 +563,6 @@ wk7_resorb=(wk7_resorb*.005^3)*(-1);
 
 resorption_37 = wk3_resorb+wk4_resorb+wk5_resorb+wk6_resorb+wk7_resorb;
 
-
-% wk3_remod_form=sum(sum(Mod_Remod_Ind==33));
-% wk4_remod_form=sum(sum(Mod_Remod_Ind==44));
-% wk5_remod_form=sum(sum(Mod_Remod_Ind==55));
-% wk6_remod_form=sum(sum(Mod_Remod_Ind==66));
-% wk7_remod_form=sum(sum(Mod_Remod_Ind==77));
-% 
-% wk3_remod_form=wk3_remod_form*.005^3;
-% wk4_remod_form=wk4_remod_form*.005^3;
-% wk5_remod_form=wk5_remod_form*.005^3;
-% wk6_remod_form=wk6_remod_form*.005^3;
-% wk7_remod_form=wk7_remod_form*.005^3;
-% 
-% wk1_remod_res=sum(sum(Mod_Remod_Ind==-11));
-% wk2_remod_res=sum(sum(Mod_Remod_Ind==-22));
-% wk3_remod_res=sum(sum(Mod_Remod_Ind==-33));
-% wk4_remod_res=sum(sum(Mod_Remod_Ind==-44));
-% wk5_remod_res=sum(sum(Mod_Remod_Ind==-55));
-% wk6_remod_res=sum(sum(Mod_Remod_Ind==-66));
-
-% wk3_remod_res=wk3_remod_res*.005^3;
-% wk4_remod_res=wk4_remod_res*.005^3;
-% wk5_remod_res=wk5_remod_res*.005^3;
-% wk6_remod_res=wk6_remod_res*.005^3;
-
-% remodeling_form_events_37 = wk3_remod_form+wk4_remod_form+wk5_remod_form+wk6_remod_form+wk7_remod_form;
 
 tv = tv*.005^3;
 
