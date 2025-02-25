@@ -411,7 +411,7 @@ reverse_remod = 0;
 %%% BBBBBBB %%%
 
 wk3_form_new = 0;
-cmod
+
 for i=1:length(comp)
     seq_0 = comp{i}(1:1);
     seq_1 = comp{i}(2:2);
@@ -456,8 +456,7 @@ for i=1:length(comp)
         Mod_Remod_Ind(i,3) = -3;
         
         % Week 3 Resorption is -3
-        
-        
+ 
     end
         
     
@@ -473,7 +472,6 @@ for i=1:length(comp)
         
 %         wk4 Resorption is -4
          
-       
     end
   
     if strcmp(seq_4, 'F')
@@ -502,7 +500,8 @@ for i=1:length(comp)
         
         % wk6 Resorption is -6
         
-
+    end
+    
     if strcmp(seq_6, 'F')
         
         Mod_Remod_Ind(i,7) = 7;
